@@ -1,8 +1,8 @@
-function getUsuarioView()
+function getView(directory)
 {
 	$.ajax({
 		type: "GET",
-		url: "usuarios/ver.php",
+		url: directory +"/ver.php",
 		success: function(data){
 			$('#view').html(data);
 		}
@@ -13,7 +13,11 @@ function getUsuarioView()
 $(function(){
 	
 	$('#user').click(function(){
-		getUsuarioView();
+		getView('usuarios');
+	});
+	
+	$('#especie').click(function(){
+		getView('especies');
 	});
 	
 });
