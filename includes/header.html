@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>IMVETLASA</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="styles/styles.css" media="screen" rel="stylesheet" type="text/css" />
+	<!-- FONTS -->
+	<link rel="stylesheet" type="text/css" href="styles/MyFontsWebfontsOrderM3549149.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+	<link href="scripts/chosen/chosen.css" media="screen" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+	<script type="text/javascript" src="scripts/jquery-ui-1.8.17.custom.min.js"></script>
+	<!--jCarousel library-->
+	<script type="text/javascript" src="scripts/jquery.jcarousel.min.js"></script>
+	<!--jCarousel skin stylesheet-->
+	<link rel="stylesheet" type="text/css" href="scripts/skins/tango/skin.css" />
+	<script type="text/javascript">
+	
+	function mycarousel_initCallback(carousel)
+	{
+	    // Pause autoscrolling if the user moves with the cursor over the clip.
+	    carousel.clip.hover(function() {
+	        carousel.stopAuto();
+	    }, function() {
+	        carousel.startAuto();
+	    });
+	};
+	
+	jQuery(document).ready(function() {    
+	    jQuery('#logos').jcarousel({
+	    	auto: 3,
+	    	wrap: 'circular',
+	    	initCallback: mycarousel_initCallback
+	    });
+	});	
+	</script>
+	<script type="text/javascript" src="scripts/menu.js"></script>
+	
+</head>
+<body>
+<div id="menuBar">	
+	<div id="navigation">
+		<a href="index.php" id="logo"><img src="images/nav/logo.png"/></a>
+		<ul id="jsddm">
+			<li><a href="index.php" class="arriba">INICIO</a>
+			<li><a href="historia.php">NOSOTROS</a>
+				<ul>
+					<li><a href="historia.php">HISTORIA</a></li>
+					<li><a href="mision.php">MISIÓN</a></li>
+					<li><a href="vision.php">VISIÓN</a></li>
+					<li><a href="objetivo.php">OBJETIVOS</a></li>
+					<li><a href="valores.php">VALORES</a></li>
+				</ul>
+			</li>
+			<!-- <li><a href="laboratorio.php"><img src="images/nav/productos.png" class="arriba"/></a>
+				<ul>
+					<li><a href="laboratorio.php"><img src="images/nav/laboratorio.png"/></a></li>
+					<li><a href="#"><img src="images/nav/especie.png"/></a></li>
+					<li><a href="#"><img src="images/nav/grupo.png"/></a></li>
+				</ul>
+			</li> -->
+			<li><a href="contacto.php">CONTACTO</a></li>
+			<li><a href="cotizacion.php">COTIZACIÓN</a></li>
+		</ul>			
+	</div><!-- fin de navigation -->
+
