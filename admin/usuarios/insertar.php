@@ -1,11 +1,17 @@
 <?php
 	include('../../includes/dbconnect.php');
-	include ('usuarios.php');
+	include ('../clases/usuarios.php');
 	$obj = json_decode($_POST['json']);
 	$dbc = new dbconnect();
 	$uDAO = new usuariosDAO($dbc->getConnection());
 	try{
-		$uDAO->addUsuarios($obj);
+		if ($_POST['type'] == 'insertar'){
+			$uDAO->addUsuarios($obj);
+		}
+		else if ($_POST['type'] == 'editar')
+		{
+			$uDAO->editUsuarios($obj);
+		}
 	}
 	catch (Exception $ex)
 	{

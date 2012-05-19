@@ -1,6 +1,6 @@
 <?php
 include('../../includes/dbconnect.php');
-include ('usuarios.php');
+include ('../clases/usuarios.php');
 $dbc = new dbconnect();
 $uDAO = new usuariosDAO($dbc->getConnection());
 $usuarios = $uDAO->getUsuarios();
@@ -18,9 +18,9 @@ $usuarios = $uDAO->getUsuarios();
 <?php	
 	foreach ($usuarios as $u)
 	{
-		echo '<tr><td>'. $u->email .'</td>
-				<td class="edit"><td>
-				<td class="delete"><td>
+		echo '<tr id="'.$u->email .'"><td>'. $u->email .'</td>
+				<td class="usuarios"><img class="edit" src="images/edit.png" alt="editar"/></td>
+				<td class="usuarios"><img class="delete" src="images/delete.png" alt="borrar"/></td>
 		</tr>';
 	}
 ?>
