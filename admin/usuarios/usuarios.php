@@ -17,6 +17,17 @@ class usuariosDAO
 		}
 		return $array;
 	}
+	public function addUsuarios($obj)
+	{
+		$q = "INSERT INTO usuario VALUES (?, ?)";
+		$stmt = $this->dbc->stmt_init();
+ 		if($stmt->prepare($q)) {
+ 			$stmt->bind_param('ss', $obj->email, $obj->password);
+ 			$stmt->execute();
+ 		}
+		$stmt->close();
+	}
+	
 
 }
 
