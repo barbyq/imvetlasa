@@ -22,10 +22,10 @@
 ?>
 <form>
 	<label>Email:
-		<input type="text" id="email" name="email" value="<?php if ($edit){echo $obj->email;} ?>"/>
+		<input type="text" id="email" name="email" value="<?php if ($edit){echo $obj->email;} ?>" class="<?php if ($edit){echo $obj->email;} ?>"/>
 	</label>
 	<label>Password:
 		<input type="password" id="pass" name="password" value="<?php if ($edit){echo $obj->password;} ?>"/>
 	</label>
-	<input type="button" value="Agregar" id="insertar" class="usuarios"/>
+	<input type="button" value="<?php if ($edit){echo 'Guardar Cambios';}else{echo 'Agregar';} ?>" id="<?php if ($edit){echo 'editar';}else{echo 'insertar';} ?>" class="usuarios"/>
 </form>

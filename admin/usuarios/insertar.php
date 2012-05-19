@@ -5,13 +5,17 @@
 	$dbc = new dbconnect();
 	$uDAO = new usuariosDAO($dbc->getConnection());
 	try{
-		if ($_POST['type'] == 'insertar'){
+		$type = $_POST['type'];
+		if ($type == 'insertar'){
 			$uDAO->addUsuarios($obj);
 		}
-		else if ($_POST['type'] == 'editar')
+		else if ($type == 'editar')
 		{
 			$uDAO->editUsuarios($obj);
-		}
+		}else if($type == 'borrar')
+		{
+			$uDAO->deleteUsuarios($obj);
+		}	
 	}
 	catch (Exception $ex)
 	{

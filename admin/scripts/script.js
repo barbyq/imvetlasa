@@ -40,19 +40,6 @@ function cargarValores()
 	});
 	return data;
 }
-function insertar(directory, dataJSON)
-{
-	$.ajax({
-		type: "POST",
-		url: directory +"/insertar.php",
-		data: {type : 'insertar',
-		json: dataJSON},
-		success: function(data){
-			$('#edit').html("");
-			getView(directory);
-		}
-	});
-}
 function editar(directory, dataJSON, type)
 {
 	$.ajax({
@@ -93,13 +80,27 @@ $(function(){
 	$('#view').on('click', '.edit', function(){
 		var parent =  $(this).parent();
 		var directory = parent.attr('class');
-		console.log( parent.parent().attr('id'));
 		getEdit(directory, parent.parent().attr('id'));
-		
-		//var data = cargarValores();
-		//dataJSON = JSON.stringify(data);
-		//editar(directory, dataJSON, 'editar');
 	});
 	
+	$('#edit').on('click', '#editar', function(){
+		var directory = $(this).attr('class');
+		var data = cargarValores();
+		data.emailOriginal = $('#email').attr('class');
+		dataJSON = JSON.stringify(data);
+		console.log(dataJSON);
+		editar(directory, dataJSON, 'editar');
+	});
+	
+	$('#view').on('click', '.delete', function(){
+		if (confirm("¿Seguro que deseas borrar?")){
+			var parent =  $(this).parent();
+			var directory = parent.attr('class');
+			data = new Object();
+			data.email = parent.parent().attr('id');
+			dataJSON = JSON.stringify(data);
+			editar(directory, dataJSON, 'borrar');
+		}
+	});
 	
 });

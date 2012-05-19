@@ -32,14 +32,14 @@ class usuariosDAO
 		$q = "UPDATE usuario SET email = ?, password = ? WHERE email = ? ";
 		$stmt = $this->dbc->stmt_init();
  		if($stmt->prepare($q)) {
- 			$stmt->bind_param('sss', $obj->email, $obj->password, $obj->email);
+ 			$stmt->bind_param('sss', $obj->email, $obj->password, $obj->emailOriginal);
  			$stmt->execute();
  		}
 		$stmt->close();
 	}
 	public function deleteUsuarios($obj)
 	{
-		$q = "DELETE usuario WHERE email = ? ";
+		$q = "DELETE FROM usuario WHERE email = ? ";
 		$stmt = $this->dbc->stmt_init();
  		if($stmt->prepare($q)) {
  			$stmt->bind_param('s', $obj->email);
