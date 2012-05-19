@@ -1,5 +1,5 @@
 <?php
-class usuariosDAO
+class especiesDAO
 {
 	private $dbc;
 	public function  __construct($connection)
@@ -7,9 +7,9 @@ class usuariosDAO
 		$this->dbc = $connection;
 	}
 
-	public function getUsuarios()
+	public function getEspecies()
 	{
-		$q = "SELECT * FROM usuario";		
+		$q = "SELECT * FROM especie";		
 		$array = array();
 		$r = $this->dbc-> query($q);
 		while ($obj = $r->fetch_object()) {
@@ -17,57 +17,57 @@ class usuariosDAO
 		}
 		return $array;
 	}
-	public function addUsuarios($obj)
+	public function addEspecies($obj)
 	{
-		$q = "INSERT INTO usuario VALUES (?, ?)";
+		$q = "INSERT INTO especie (nombre) VALUES (?)";
 		$stmt = $this->dbc->stmt_init();
  		if($stmt->prepare($q)) {
- 			$stmt->bind_param('ss', $obj->email, $obj->password);
+ 			$stmt->bind_param('s', $obj->nombre);
+ 			$stmt->execute();
+ 		}
+		$stmt->close();
+		
+	}
+	
+	public function editEspecies($obj)
+	{
+		$q = "UPDATE especie SET nombre = ? WHERE especieId = ? ";
+		$stmt = $this->dbc->stmt_init();
+ 		if($stmt->prepare($q)) {
+ 			$stmt->bind_param('si', $obj->nombre, $obj->especieId);
+ 			$stmt->execute();
+ 		}
+		$stmt->close();
+		return $this->dbc->error;
+	}
+	public function deleteEspecies($obj)
+	{
+		$q = "DELETE FROM especie WHERE especieId = ? ";
+		$stmt = $this->dbc->stmt_init();
+ 		if($stmt->prepare($q)) {
+ 			$stmt->bind_param('i', $obj->id);
  			$stmt->execute();
  		}
 		$stmt->close();
 	}
-	public function editUsuarios($obj)
+	public function getEspecie($id)
 	{
-		$q = "UPDATE usuario SET email = ?, password = ? WHERE email = ? ";
-		$stmt = $this->dbc->stmt_init();
- 		if($stmt->prepare($q)) {
- 			$stmt->bind_param('sss', $obj->email, $obj->password, $obj->emailOriginal);
- 			$stmt->execute();
- 		}
-		$stmt->close();
-	}
-	public function deleteUsuarios($obj)
-	{
-		$q = "DELETE FROM usuario WHERE email = ? ";
-		$stmt = $this->dbc->stmt_init();
- 		if($stmt->prepare($q)) {
- 			$stmt->bind_param('s', $obj->id);
- 			$stmt->execute();
- 		}
-		$stmt->close();
-	}
-	public function getUsuario($id)
-	{
-		$q = "SELECT * FROM usuario WHERE email = ?";
+		$q = "SELECT * FROM especie WHERE especieId = ?";
 		$obj = new stdClass;
 		$stmt = $this->dbc->stmt_init();
  		if($stmt->prepare($q)) {
- 			$stmt->bind_param('s', $id);
+ 			$stmt->bind_param('i', $id);
  			$stmt->execute();
- 			$stmt->bind_result($email, $pass);
+ 			$stmt->bind_result($especieId, $nombre);
  			while ($stmt->fetch())
 			{
-				$obj->email = $email;
-				$obj->password = $pass;
+				$obj->especieId = $especieId;
+				$obj->nombre = $nombre;
 			}
  		}
 		$stmt->close();	
 		return $obj;
 	}
-	
-	
-
 }
 
 ?>

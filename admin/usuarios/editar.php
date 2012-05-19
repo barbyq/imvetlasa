@@ -27,5 +27,5 @@
 	<label>Password:
 		<input type="password" id="pass" name="password" value="<?php if ($edit){echo $obj->password;} ?>"/>
 	</label>
-	<input type="button" value="<?php if ($edit){echo 'Guardar Cambios';}else{echo 'Agregar';} ?>" id="<?php if ($edit){echo 'editar';}else{echo 'insertar';} ?>" class="usuarios"/>
+	<input type="button" value="<?php if ($edit){echo 'Guardar Cambios';}else{echo 'Agregar';} ?>" id="<?php if ($edit){echo 'editarEmail';}else{echo 'insertar';} ?>" class="usuarios"/>
 </form>
