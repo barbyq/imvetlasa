@@ -30,8 +30,6 @@ function getEdit(directory, id)
 		}
 	});
 }
-
-
 function cargarValores()
 {
 	var data = {};
@@ -65,6 +63,10 @@ $(function(){
 		getView('especies');
 	});
 	
+	$('#laboratorio').click(function(){
+		getView('laboratorios');
+	});
+	
 	$('#view').on('click', '#add', function(){
 		var directory = $(this).attr('class');
 		getAdd(directory);
@@ -84,16 +86,7 @@ $(function(){
 		console.log(parent.parent().attr('id'));
 		getEdit(directory, parent.parent().attr('id'));
 	});
-	
-	/*Especial para email*/
-	$('#edit').on('click', '#editarEmail', function(){
-		var directory = $(this).attr('class');
-		var data = cargarValores();
-		data.emailOriginal = $('#email').attr('class');
-		dataJSON = JSON.stringify(data);
-		editar(directory, dataJSON, 'editar');
-	});
-	
+		
 	$('#edit').on('click', '#editar', function(){
 		var directory = $(this).attr('class');
 		var data = cargarValores();
