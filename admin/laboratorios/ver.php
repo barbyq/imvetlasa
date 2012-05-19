@@ -2,8 +2,8 @@
 include('../../includes/dbconnect.php');
 include ('../clases/laboratorios.php');
 $dbc = new dbconnect();
-$lDAO = new laboratoriosDAO($dbc->getConnection());
-$laboratorios = $lDAO->getLaboratorios();
+$DAO = new laboratoriosDAO($dbc->getConnection());
+$laboratorios = $DAO->getLaboratorios();
 	
 ?>
 <div class="ver">

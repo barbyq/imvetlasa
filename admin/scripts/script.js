@@ -67,6 +67,10 @@ $(function(){
 		getView('laboratorios');
 	});
 	
+	$('#grupo').click(function(){
+		getView('grupos');
+	});
+	
 	$('#view').on('click', '#add', function(){
 		var directory = $(this).attr('class');
 		getAdd(directory);

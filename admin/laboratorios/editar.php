@@ -3,7 +3,7 @@
 	include ('../clases/laboratorios.php');
 	$obj = json_decode($_POST['json']);
 	$dbc = new dbconnect();
-	$eDAO = new laboratoriosDAO($dbc->getConnection());
+	$DAO = new laboratoriosDAO($dbc->getConnection());
 
 	
 	$edit = false;
@@ -11,7 +11,7 @@
 	{
 		$id = $_GET['id']; 
 		try{
-			$obj = $eDAO->getLaboratorio($id);
+			$obj = $DAO->getLaboratorio($id);
 			$edit = true;
 		}
 		catch(Exception $ex)
