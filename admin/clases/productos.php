@@ -9,7 +9,7 @@ class productosDAO
 
 	public function getProductos()
 	{
-		$q = "SELECT productoId, producto.nombre as 'producto', laboratorio.nombre as 'laboratorio', grupo.nombre as 'grupo', descripcion, imagen FROM producto JOIN laboratorio ON laboratorio.laboratorioId = producto.laboratorioId JOIN grupo ON grupo.grupoId = producto.grupoId";		
+		$q = "SELECT productoId, producto.nombre as 'producto', laboratorio.nombre as 'laboratorio', grupo.nombre as 'grupo' FROM producto JOIN laboratorio ON laboratorio.laboratorioId = producto.laboratorioId JOIN grupo ON grupo.grupoId = producto.grupoId";		
 		$array = array();
 		$r = $this->dbc-> query($q);
 		while ($obj = $r->fetch_object()) {
@@ -60,6 +60,28 @@ class productosDAO
 		return $array;
 	}
 	
+	public function getProducto($id)
+	{
+		$q = "SELECT productoId, producto.nombre as 'producto', laboratorio.nombre as 'laboratorio', grupo.nombre as 'grupo', imagen, descripcion FROM producto JOIN laboratorio ON laboratorio.laboratorioId = producto.laboratorioId JOIN grupo ON grupo.grupoId = producto.grupoId WHERE productoId = ?";
+		$obj = new stdClass;
+		$stmt = $this->dbc->stmt_init();
+ 		if($stmt->prepare($q)) {
+ 			$stmt->bind_param('i', $id);
+ 			$stmt->execute();
+ 			$stmt->bind_result($productoId, $producto, $laboratorio, $grupo, $imagen, $descripcion);
+ 			while ($stmt->fetch())
+			{
+				$obj->productoId = $productoId;
+				$obj->producto = $producto;
+				$obj->laboratorio = $laboratorio;
+				$obj->grupo = $grupo;
+				$obj->imagen = $imagen;
+				$obj->descripcion = $descripcion;
+			}
+ 		}
+		$stmt->close();	
+		return $obj;
+	}
 	/*
 	public function addEspecies($obj)
 	{

@@ -17,6 +17,10 @@ function getAdd(directory)
 		url: directory +"/editar.php",
 		success: function(data){
 			$('#edit').html(data);
+			if (directory == 'productos')
+			{
+				$(".chzn-select").chosen();
+			}
 		}
 	});
 }
@@ -28,6 +32,10 @@ function getEdit(directory, id)
 		data: {id: id},
 		success: function(data){
 			$('#edit').html(data);
+			if (directory == 'productos')
+			{
+				$(".chzn-select").chosen();
+			}
 		}
 	});
 }
@@ -55,6 +63,8 @@ function editar(directory, dataJSON, type)
 
 
 $(function(){
+	
+	
 	
 	$('#user').click(function(){
 		getView('usuarios');
