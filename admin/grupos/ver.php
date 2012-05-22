@@ -8,19 +8,19 @@ $grupos = $DAO->getGrupos();
 ?>
 <div class="ver">
 <h1>Grupos Farmacológicos:</h1>
-<p id="add" class="grupos">Agregar Grupo Farmacológico</p>
+<p id="add" class="grupos"><img src="../images/add.png" alt="agregar"/><span class="vert"> Agregar Grupo Farmacológico</span></p>
 <table>
 	<tr>
-		<td>Nombre</td>
-		<td>Editar</td>
-		<td>Eliminar</td>
+		<th>Nombre</th>
+		<th>Editar</th>
+		<th>Eliminar</th>
 	</tr>
 <?php	
 	foreach ($grupos as $g)
 	{
 		echo '<tr id="'.$g->grupoId .'"><td>'. $g->nombre .'</td>
-				<td class="grupos"><img class="edit" src="images/edit.png" alt="editar"/></td>
-				<td class="grupos"><img class="delete" src="images/delete.png" alt="borrar"/></td>
+				<td class="grupos"><img class="edit" src="../images/edit.png" alt="editar"/></td>
+				<td class="grupos"><img class="delete" src="../images/delete.png" alt="borrar"/></td>
 		</tr>';
 	}
 ?>

@@ -21,6 +21,8 @@
 	}
 ?>
 <form>
+	<h1><?php if ($edit){echo 'Editar:';}else{echo 'Agregar:';} ?></h1>
+	<br/>
 	<label>Email:
 		<input type="text" id="email" name="email" value="<?php if ($edit){echo $obj->email;} ?>"/>
 	</label>

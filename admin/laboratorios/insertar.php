@@ -11,7 +11,7 @@
 		}
 		else if ($type == 'editar')
 		{
-			echo $DAO->editLaboratorios($obj);
+			$DAO->editLaboratorios($obj);
 		}else if($type == 'borrar')
 		{
 			$DAO->deleteLaboratorios($obj);

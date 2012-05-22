@@ -38,7 +38,6 @@ class laboratoriosDAO
  			$stmt->execute();
  		}
 		$stmt->close();
-		return $this->dbc->error;
 	}
 	public function deleteLaboratorios($obj)
 	{

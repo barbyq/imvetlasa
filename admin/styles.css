@@ -1,0 +1,110 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	
+}
+body
+{
+	text-align: center;
+	background-color: #43abde;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	color: white;
+	text-align: center;
+}
+h1
+{
+	font-weight: 400;
+	font-size: 20px;
+}
+/*NAVIGATION*/
+#nav
+{
+	margin-top: 20px;
+	width: 800px;
+	margin: 20px auto;
+	
+}
+#nav li
+{
+	text-decoration: none;
+	display: inline;
+	background-color: #075f8b;
+	padding: 13px;
+	
+}
+#nav li:hover
+{
+	background-color: #ffd872;
+	-webkit-transition: all 0.2s ease-in;
+	-moz-transition: all 0.2s ease-in;
+	-o-transition: all 0.2s ease-in;
+	cursor: pointer;
+	color: black;
+}
+/*content*/
+#content
+{
+	width: 960px;
+	margin: 0 auto;
+}
+
+/*VIEW*/
+#view{
+	width: 480px;
+	float: left;
+	padding: 10px;
+}
+#view h1, #edit h1
+{
+	color: #075f8b;
+}
+#view table
+{
+	margin: 10px auto;
+}
+#view table td
+{
+	background-color: #1d6295;
+	padding: 10px;
+}
+#view table th
+{
+	background-color: black;
+	padding: 10px;
+}
+.vert
+{
+	vertical-align: top;
+}
+#add:hover
+{
+	color: black;
+	-webkit-transition: all 0.2s ease-in;
+	-moz-transition: all 0.2s ease-in;
+	-o-transition: all 0.2s ease-in;
+	cursor: pointer;
+
+}
+/*EDIT*/
+#edit
+{
+	float: left;
+	padding: 10px;
+}

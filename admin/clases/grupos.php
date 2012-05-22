@@ -38,7 +38,6 @@ class gruposDAO
  			$stmt->execute();
  		}
 		$stmt->close();
-		return $this->dbc->error;
 	}
 	public function deleteGrupos($obj)
 	{

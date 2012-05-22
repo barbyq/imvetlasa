@@ -11,7 +11,7 @@
 		}
 		else if ($type == 'editar')
 		{
-			echo $DAO->editGrupos($obj);
+			$DAO->editGrupos($obj);
 		}else if($type == 'borrar')
 		{
 			$DAO->deleteGrupos($obj);

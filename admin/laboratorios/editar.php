@@ -21,6 +21,8 @@
 	}
 ?>
 <form>
+	<h1><?php if ($edit){echo 'Editar:';}else{echo 'Agregar:';} ?></h1>
+	<br/>
 	<label>Nombre:
 		<input type="text" id="nombre" name="nombre" value="<?php if ($edit){echo $obj->nombre;} ?>"/>
 		<input type="hidden" name="laboratorioId" value="<?php if ($edit){echo $obj->laboratorioId;} ?>"/>

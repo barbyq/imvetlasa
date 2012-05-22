@@ -7,6 +7,7 @@ function getView(directory)
 			$('#view').html(data);
 		}
 	});
+	$('#edit').html('');
 }
 
 function getAdd(directory)
@@ -69,6 +70,10 @@ $(function(){
 	
 	$('#grupo').click(function(){
 		getView('grupos');
+	});
+	
+	$('#producto').click(function(){
+		getView('productos');
 	});
 	
 	$('#view').on('click', '#add', function(){

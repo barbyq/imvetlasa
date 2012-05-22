@@ -38,7 +38,6 @@ class especiesDAO
  			$stmt->execute();
  		}
 		$stmt->close();
-		return $this->dbc->error;
 	}
 	public function deleteEspecies($obj)
 	{
